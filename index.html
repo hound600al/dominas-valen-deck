@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>발렌 브랜드전략과제 ｜ 도미나스 트라넥삼산 하이퍼 P-토닝 앰플</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<style>
+  :root{
+    --ink:#1f2424; --charcoal:#353535; --gray:#8b9090; --faint:#b9bfbf; --line:#e7eaea;
+    --mint:#2cc4b4; --mint-d:#179d8f; --mint-bg:#e8faf6;
+    --coral:#f76560; --coral-bg:#fdecec;
+    --navy:#163a52; --navy-bg:#eaf1f5;
+    --tint:#f6f9f9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{font-family:'Pretendard',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:var(--charcoal);background:#d9dede;line-height:1.5;}
+  .hint{position:fixed;top:14px;right:14px;z-index:99;background:var(--navy);color:#fff;font-size:13px;padding:9px 14px;border-radius:30px;box-shadow:0 4px 16px rgba(0,0,0,.2);}
+  .hint b{color:var(--mint);}
+  .deck{display:flex;flex-direction:column;align-items:center;gap:26px;padding:40px 0 64px;}
+  .slide{width:1280px;height:720px;background:#fff;position:relative;overflow:hidden;padding:52px 64px 56px;box-shadow:0 10px 40px rgba(0,0,0,.13);}
+
+  /* header */
+  .shead{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .chip{font-size:12.5px;font-weight:700;letter-spacing:.4px;padding:5px 13px;border-radius:30px;color:#fff;}
+  .chip.bottleneck{background:var(--coral);}
+  .chip.find{background:var(--mint);}
+  .chip.act{background:var(--navy);}
+  .chip.result{background:var(--charcoal);}
+  .kicker{font-size:13px;font-weight:600;color:var(--gray);letter-spacing:.3px;}
+  .pageno{position:absolute;right:64px;bottom:30px;font-size:13px;color:var(--faint);font-weight:600;letter-spacing:.5px;}
+  .brandfoot{position:absolute;left:64px;bottom:28px;font-size:12px;color:var(--faint);letter-spacing:1.5px;font-weight:700;}
+  h1.stitle{font-size:38px;font-weight:800;color:var(--ink);letter-spacing:-1px;line-height:1.18;margin-top:4px;}
+  .ssub{font-size:16.5px;color:var(--gray);margin-top:12px;font-weight:500;}
+  .rule{height:3px;width:54px;background:var(--mint);border-radius:3px;margin:16px 0 22px;}
+
+  /* generic */
+  .row{display:flex;gap:22px;}
+  .col{flex:1;}
+  .card{background:var(--tint);border:1px solid var(--line);border-radius:14px;padding:22px 24px;}
+  .card h3{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:8px;}
+  .card p{font-size:14.5px;color:#5c6262;}
+  .big{font-size:46px;font-weight:800;color:var(--ink);letter-spacing:-1.5px;line-height:1;}
+  .big .u{font-size:20px;font-weight:700;color:var(--gray);margin-left:2px;}
+  .em{color:var(--mint-d);} .emc{color:var(--coral);} .emn{color:var(--navy);}
+  b.k{font-weight:800;color:var(--ink);}
+  ul.clean{list-style:none;}
+  ul.clean li{position:relative;padding-left:20px;font-size:15px;color:#4f5555;margin:9px 0;}
+  ul.clean li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--mint);}
+  .tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:6px;background:var(--navy-bg);color:var(--navy);}
+
+  /* shot */
+  .shot{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 3px 12px rgba(0,0,0,.07);}
+  .shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;}
+  .cap{font-size:12px;color:var(--gray);margin-top:7px;line-height:1.4;}
+  .cap b{color:var(--charcoal);}
+
+  table.cmp{width:100%;border-collapse:collapse;font-size:13.2px;}
+  table.cmp th,table.cmp td{border-bottom:1px solid var(--line);padding:10px 10px;text-align:left;vertical-align:top;}
+  table.cmp th{background:var(--navy);color:#fff;font-weight:700;font-size:12.5px;border-bottom:none;}
+  table.cmp tr td:first-child{font-weight:800;color:var(--ink);}
+  table.cmp .hl{background:var(--mint-bg);}
+  table.cmp .hl td:first-child{color:var(--mint-d);}
+
+  /* cover */
+  .cover{padding:0;display:flex;}
+  .cover .left{flex:1.25;padding:64px 56px;display:flex;flex-direction:column;justify-content:center;}
+  .cover .right{flex:1;background:var(--tint);border-left:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:30px;}
+  .cover .right img{width:100%;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.14);}
+  .cover .eyebrow{font-size:14px;font-weight:800;letter-spacing:3px;color:var(--mint-d);margin-bottom:22px;}
+  .cover h1{font-size:46px;font-weight:800;color:var(--ink);letter-spacing:-1.6px;line-height:1.2;}
+  .cover .concept{margin-top:26px;font-size:21px;font-weight:700;color:var(--charcoal);line-height:1.45;border-left:4px solid var(--coral);padding-left:16px;}
+  .cover .meta{margin-top:auto;font-size:14px;color:var(--gray);padding-top:30px;}
+  .cover .meta b{color:var(--charcoal);}
+
+  /* quadrant map */
+  .map{position:relative;background:var(--tint);border:1px solid var(--line);border-radius:14px;height:430px;margin-top:6px;}
+  .map .axis{position:absolute;background:var(--faint);}
+  .map .axis.x{left:6%;right:6%;top:50%;height:1.5px;}
+  .map .axis.y{top:6%;bottom:6%;left:50%;width:1.5px;}
+  .map .axlbl{position:absolute;font-size:12.5px;font-weight:700;color:var(--gray);}
+  .dot{position:absolute;transform:translate(-50%,-50%);text-align:center;}
+  .dot .d{width:13px;height:13px;border-radius:50%;margin:0 auto 5px;}
+  .dot span{font-size:12.5px;font-weight:700;color:#5c6262;white-space:nowrap;}
+  .dot.us .d{width:18px;height:18px;background:var(--mint);box-shadow:0 0 0 6px var(--mint-bg);}
+  .dot.us span{color:var(--mint-d);font-size:14px;font-weight:800;}
+  .dot.other .d{background:var(--faint);}
+  .star{position:absolute;transform:translate(-50%,-50%);font-size:12px;font-weight:800;color:var(--coral);background:var(--coral-bg);padding:5px 11px;border-radius:30px;white-space:nowrap;}
+
+  /* phase */
+  .phase{display:flex;gap:16px;align-items:stretch;}
+  .pcard{flex:1;border-radius:14px;padding:20px 20px;position:relative;border:1px solid var(--line);}
+  .pcard.p1{background:var(--mint-bg);border-color:#bfeee7;}
+  .pcard.p2{background:var(--navy-bg);}
+  .pcard.p3{background:var(--tint);}
+  .pnum{font-size:12px;font-weight:800;letter-spacing:.5px;color:#fff;padding:4px 12px;border-radius:30px;display:inline-block;margin-bottom:10px;}
+  .p1 .pnum{background:var(--mint-d);} .p2 .pnum{background:var(--navy);} .p3 .pnum{background:var(--gray);}
+  .pcard h3{font-size:16.5px;font-weight:800;color:var(--ink);margin-bottom:8px;}
+  .pcard li{font-size:13.3px;color:#54595a;margin:6px 0;padding-left:16px;position:relative;list-style:none;}
+  .pcard li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--mint-d);}
+  .arrow{display:flex;align-items:center;color:var(--faint);font-size:22px;font-weight:800;}
+
+  .lead{font-size:19px;font-weight:700;color:var(--ink);line-height:1.5;}
+  .lead .hi{background:linear-gradient(transparent 60%,var(--mint-bg) 60%);padding:0 2px;}
+  .quote{font-size:13px;color:#6a6f6f;font-style:normal;background:#fff;border:1px dashed var(--coral);border-radius:10px;padding:11px 14px;}
+  .note{font-size:12px;color:var(--faint);margin-top:14px;}
+
+  @media print{
+    body{background:#fff;}
+    .hint{display:none;}
+    .deck{gap:0;padding:0;}
+    .slide{box-shadow:none;page-break-after:always;break-after:page;}
+    @page{size:1280px 720px;margin:0;}
+  }
+</style>
+</head>
+<body>
+<div class="hint">키보드 <b>Ctrl/⌘+P</b> → 대상 "PDF로 저장", 용지 가로 → 12p PDF 완성</div>
+<div class="deck">
+
+<!-- 1. COVER -->
+<section class="slide cover">
+  <div class="left">
+    <div class="eyebrow">VALEN ╳ DOMINAS ｜ 브랜드 마케팅 전략 과제</div>
+    <h1>도미나스 트라넥삼산<br>하이퍼 P-토닝 앰플<br><span style="color:var(--mint-d)">브랜드 전략 제안</span></h1>
+    <div class="concept">"기미는 생기고 나서 지우는 게 아니라,<br>생기기 전에 막는 것."</div>
+    <div class="meta">더마·기미 케어 시장 분석 → 경쟁 환경 → 포지셔닝 → 메시지 → Next Action<br>
+      <b>이도형</b> ｜ 2026</div>
+  </div>
+  <div class="right">
+    <img src="images/dominas-tone-hero.jpeg" alt="도미나스 전략 제품">
+  </div>
+</section>
+
+<!-- 2. EXECUTIVE SUMMARY -->
+<section class="slide">
+  <div class="shead"><span class="kicker">EXECUTIVE SUMMARY ｜ 한 장 요약</span></div>
+  <h1 class="stitle">효과의 대가로 자극을 참던 시장에, <span class="em">'막는 기미 케어'</span>로 새 카테고리를 연다</h1>
+  <div class="rule"></div>
+  <div class="row" style="gap:18px;">
+    <div class="col card"><h3 style="color:var(--coral)">① 병목 · 시장</h3>
+      <p>더마 코스메틱은 한국 <b class="k">+14%</b> 두 자릿수 성장. 그러나 미백 강자 비타민C·레티놀은 <b class="k">"효과=자극 감내"</b>를 강요. 소비자는 딜레마에 갇힘.</p></div>
+    <div class="col card"><h3 style="color:var(--mint-d)">② 발견 · 경쟁</h3>
+      <p>트라넥삼산 카테고리엔 <b class="k">No.1 부재</b>. <b class="k">"제약 신뢰 × 선제 차단 × 저자극"</b>을 동시에 말하는 브랜드가 없다 = 빈 자리.</p></div>
+    <div class="col card"><h3 style="color:var(--navy)">③ 실행 · 전략</h3>
+      <p>핵심 USP는 <b class="k">선제 차단·저자극</b>. 거기에 <b class="k">68년 기미 제약사</b>의 적정 배합 신뢰를 더해 "막는 기미 케어"로 포지셔닝.</p></div>
+    <div class="col card"><h3 style="color:var(--charcoal)">④ Next Action</h3>
+      <p><b class="k">성분 비교 콘텐츠</b>를 최우선 발행(Paid·블로그 시딩·카페 침투) → 바이럴 → 오프라인 전환.</p></div>
+  </div>
+  <p class="lead" style="margin-top:24px;">소비자의 인식을 <span class="hi">"기미는 지우는 게 아니라 막는 것"</span>으로 전환시켜, 도미나스가 <span class="em">트라넥삼산 = 기미 케어</span>의 대명사를 선점한다.</p>
+  <div class="brandfoot">DOMINAS</div><div class="pageno">02 / 12</div>
+</section>
+
+<!-- 3. 병목 - 시장 + 딜레마 -->
+<section class="slide">
+  <div class="shead"><span class="chip bottleneck">① 병목</span><span class="kicker">시장 분석 ｜ 크는 시장, 갇힌 소비자</span></div>
+  <h1 class="stitle">시장은 빠르게 크는데, 소비자는 <span class="emc">'자극'</span>에 발목 잡혀 있다</h1>
+  <div class="rule"></div>
+  <div class="row">
+    <div class="col" style="flex:.9">
+      <div class="row" style="gap:14px;">
+        <div class="col card" style="text-align:center;"><div class="big em">+14<span class="u">%</span></div><p style="margin-top:8px;">한국 더마 코스메틱<br>두 자릿수 성장</p></div>
+        <div class="col card" style="text-align:center;"><div class="big">12<span class="u">% CAGR</span></div><p style="margin-top:8px;">글로벌 더마<br>5년 연평균</p></div>
+      </div>
+      <div class="card" style="margin-top:14px;">
+        <h3>소비자 니즈는 '성분 × 저자극 × 예방'</h3>
+        <ul class="clean">
+          <li><b class="k">성분 중심 소비</b> — 근거·인체적용시험을 따져 고른다</li>
+          <li><b class="k">저자극 고효능</b> — 효과는 원하나 자극은 거부</li>
+          <li><b class="k">예방·슬로우에이징</b> — 생기기 전 관리로 이동</li>
+        </ul>
+      </div>
+      <div class="quote" style="margin-top:14px;">“레티놀 용량을 조금 늘렸더니 광대·눈가·볼이 많이 따갑고 <b>일주일째 따가움이 지속</b>됩니다.” — 실제 소비자 상담(닥터나우), 의사는 <b>사용 중단</b> 권고</div>
+    </div>
+    <div class="col" style="flex:1.1">
+      <div class="row" style="height:300px;">
+        <div class="col shot"><img src="images/evidence-derma-growth.jpeg" alt="더마코스메틱 성장 기사"></div>
+        <div class="col shot"><img src="images/evidence-retinol-irritation.jpeg" alt="레티놀 자극 소비자 상담"></div>
+      </div>
+      <p class="cap"><b>좌</b> 더마코스메틱 두 자릿수 성장 — 바이오타임즈 · <b>우</b> 비타민C·레티놀 자극 호소 — 닥터나우 의료상담</p>
+      <p class="lead" style="margin-top:20px;">→ 시장 기회는 크지만, 강력 미백 성분은 <span class="hi">'효과를 위해 자극을 참아라'</span>는 진입장벽을 만든다. 이 틈이 곧 도미나스의 기회다.</p>
+    </div>
+  </div>
+  <div class="brandfoot">DOMINAS</div><div class="pageno">03 / 12</div>
+</section>
+
+<!-- 4. 병목 - 성분 지형도 -->
+<section class="slide">
+  <div class="shead"><span class="chip bottleneck">① 병목</span><span class="kicker">시장 분석 ｜ 미백 성분 지형도</span></div>
+  <h1 class="stitle">강력한 성분일수록 자극이 크다 — 비어 있는 <span class="em">'저자극 × 선제 차단'</span></h1>
+  <div class="rule"></div>
+  <div class="row">
+    <div class="col" style="flex:1.15">
+      <div class="map">
+        <div class="axis x"></div><div class="axis y"></div>
+        <div class="axlbl" style="left:2%;top:46%;">사후 케어<br><span style="font-weight:500">(이미 생긴 색소)</span></div>
+        <div class="axlbl" style="right:2%;top:46%;text-align:right;">선제 차단<br><span style="font-weight:500">(생성 신호)</span></div>
+        <div class="axlbl" style="left:50%;top:1%;transform:translateX(-50%);">강효과 · 고자극 ▲</div>
+        <div class="axlbl" style="left:50%;bottom:1%;transform:translateX(-50%);">▼ 저자극 · 데일리</div>
+        <div class="dot other" style="left:24%;top:16%;"><div class="d"></div><span>히드로퀴논(의약품)</span></div>
+        <div class="dot other" style="left:30%;top:30%;"><div class="d"></div><span>비타민C</span></div>
+        <div class="dot other" style="left:40%;top:24%;"><div class="d"></div><span>레티놀</span></div>
+        <div class="dot other" style="left:34%;top:68%;"><div class="d"></div><span>나이아신아마이드</span></div>
+        <div class="dot other" style="left:22%;top:60%;"><div class="d"></div><span>알부틴</span></div>
+        <div class="dot us" style="left:76%;top:72%;"><div class="d"></div><span>트라넥삼산</span></div>
+        <div class="star" style="left:76%;top:88%;">도미나스가 점유할 빈 공간</div>
+      </div>
+    </div>
+    <div class="col" style="flex:.85">
+      <div class="card"><h3>강효과군의 트레이드오프</h3>
+        <ul class="clean">
+          <li><b class="k">비타민C</b> — 강력하나 불안정·따가움</li>
+          <li><b class="k">레티놀</b> — 재생 효과, 붉어짐·각질·야간 한정</li>
+          <li><b class="k">히드로퀴논</b> — 의약품급 표백, 부작용·장기사용 제한</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:14px;border-color:#bfeee7;background:var(--mint-bg);"><h3 class="em">트라넥삼산의 자리</h3>
+        <ul class="clean">
+          <li>멜라닌 <b class="k">생성 신호 단계</b>에서 선제 차단</li>
+          <li>빛·열에 안정 → <b class="k">낮·밤·민감피부 OK</b></li>
+          <li>강효과군이 못 가진 <b class="k">'저자극 × 예방'</b> 공백을 점유</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="brandfoot">DOMINAS</div><div class="pageno">04 / 12</div>
+</section>
+
+<!-- 5. 발견 - 경쟁 구도 + 표 -->
+<section class="slide">
+  <div class="shead"><span class="chip find">② 발견</span><span class="kicker">경쟁사 분석 ｜ 두 개의 전장</span></div>
+  <h1 class="stitle">도미나스는 <span class="em">두 개의 전장</span>에서 싸운다</h1>
+  <div class="rule"></div>
+  <div class="row" style="margin-bottom:16px;">
+    <div class="col card" style="background:var(--mint-bg);border-color:#bfeee7;"><h3 class="em">축 A · 트라넥삼산 직접 경쟁군</h3><p>닥터멜락신·더마팩토리·B&amp;Heal. <b class="k">절대 1위 부재</b> — 선점 가능한 형성기 시장.</p></div>
+    <div class="col card"><h3 class="emn">축 B · '기미·미백' 전체 키워드군</h3><p>메디큐브(비타민C)·라로슈포제(멜라실). 인지·채널 강자 → <b class="k">성분·신뢰로 우회</b>.</p></div>
+  </div>
+  <table class="cmp">
+    <tr><th>브랜드</th><th>핵심 성분</th><th>가격대(30ml 기준)</th><th>핵심 메시지</th><th>포지션</th></tr>
+    <tr><td>메디큐브 7일 기미앰플</td><td>비타민C 13.5%</td><td>회원 30,000원</td><td>"7일이면 피부톤"·즉효</td><td>매스 더마·즉효</td></tr>
+    <tr><td>라로슈포제 멜라B3</td><td>멜라실+나이아신10%</td><td>약 68,000원</td><td>혁신 신성분·Slow Aging</td><td>프리미엄 글로벌 더마</td></tr>
+    <tr><td>닥터멜락신 TX</td><td>트라넥삼산+펩타이드</td><td>49,000원(88,000)</td><td>"맑고 투명한 시작"·저자극·고함량</td><td>성분 전문 더마</td></tr>
+    <tr><td>더마팩토리</td><td>나이아신20%/TX6%</td><td>2만원 이하</td><td>고함량 그대로 표기</td><td>가성비 성분주의</td></tr>
+    <tr><td>약국약(도미나·멜라논)</td><td>하이드로퀴논 2~5%</td><td>2~4만원대</td><td>의약품급 표백 "치료"</td><td>강효과 + 부작용</td></tr>
+    <tr class="hl"><td>도미나스 (자사)</td><td>트라넥삼산</td><td>64,800원(160,000)</td><td>선제 차단 + 저자극 + 68년 제약</td><td>제약 신뢰 × 데일리</td></tr>
+  </table>
+  <p class="note">가격은 조사 시점(2026.06) 기준 · 프로모션에 따라 변동. 트라넥삼산 함량(%)은 자사 상세페이지 미표기 → 확인 필요.</p>
+  <div class="brandfoot">DOMINAS</div><div class="pageno">05 / 12</div>
+</section>
+
+<!-- 6. 발견 - 경쟁사 메시징 캡처 + white space -->
+<section class="slide">
+  <div class="shead"><span class="chip find">② 발견</span><span class="kicker">경쟁사 커뮤니케이션 ｜ 아무도 이 자리를 말하지 않는다</span></div>
+  <h1 class="stitle">모두가 외치지만, <span class="em">"제약 신뢰 × 선제 차단 × 저자극"</span>은 비어 있다</h1>
+  <div class="rule"></div>
+  <div class="row" style="gap:14px;">
+    <div class="col"><div class="shot" style="height:215px;"><img src="images/comp-medicube.jpeg" alt="메디큐브"></div>
+      <p class="cap"><b>메디큐브</b> · 비타민C "7일 즉효"<br><span class="tag" style="background:var(--coral-bg);color:var(--coral)">자극 트레이드오프</span></p></div>
+    <div class="col"><div class="shot" style="height:215px;"><img src="images/comp-larocheposay.jpeg" alt="라로슈포제"></div>
+      <p class="cap"><b>라로슈포제</b> · 멜라실 프리미엄<br><span class="tag">성분=다름, 고가</span></p></div>
+    <div class="col"><div class="shot" style="height:215px;"><img src="images/comp-melaxin.jpeg" alt="닥터멜락신"></div>
+      <p class="cap"><b>닥터멜락신</b> · TX·저자극·고함량<br><span class="tag" style="background:var(--coral-bg);color:var(--coral)">제약 신뢰 없음</span></p></div>
+    <div class="col"><div class="shot" style="height:215px;"><img src="images/comp-dermafactory.jpeg" alt="더마팩토리"></div>
+      <p class="cap"><b>더마팩토리</b> · 고함량 가성비<br><span class="tag">신뢰·전문성 약함</span></p></div>
+    <div class="col"><div class="shot" style="height:215px;"><img src="images/comp-pharmacy-hydroquinone.jpeg" alt="약국약"></div>
+      <p class="cap"><b>약국약(도미나크림)</b> · HQ 4%<br><span class="tag" style="background:var(--coral-bg);color:var(--coral)">부작용·장기제한</span></p></div>
+  </div>
+  <p class="lead" style="margin-top:22px;">즉효(메디큐브)·프리미엄(라로슈포제)·고함량(더마팩토리)·강효과(약국약)는 있어도 — <span class="hi">제약사의 신뢰로 '생기기 전, 자극 없이' 막아준다</span>고 말하는 브랜드는 없다. <span class="em">이 빈 자리가 도미나스의 것이다.</span></p>
+  <div class="brandfoot">DOMINAS</div><div class="pageno">06 / 12</div>
+</section>
+
+<!-- 7. 실행 - 포지셔닝 맵 -->
+<section class="slide">
+  <div class="shead"><span class="chip act">③ 실행</span><span class="kicker">포지셔닝 ｜ 자사의 자리 정의</span></div>
+  <h1 class="stitle">"약국 제약의 신뢰 × 매일 쓰는 저자극"의 <span class="emn">빈 사분면</span></h1>
+  <div class="rule"></div>
+  <div class="row">
+    <div class="col" style="flex:1.15">
+      <div class="map" style="height:420px;">
+        <div class="axis x"></div><div class="axis y"></div>
+        <div class="axlbl" style="left:2%;top:46%;">화장품<br><span style="font-weight:500">(가벼운 신뢰)</span></div>
+        <div class="axlbl" style="right:2%;top:46%;text-align:right;">제약/의약품<br><span style="font-weight:500">(전문 신뢰)</span></div>
+        <div class="axlbl" style="left:50%;top:1%;transform:translateX(-50%);">강효과 · 고자극 ▲</div>
+        <div class="axlbl" style="left:50%;bottom:1%;transform:translateX(-50%);">▼ 저자극 · 데일리</div>
+        <div class="dot other" style="left:30%;top:24%;"><div class="d"></div><span>메디큐브(비타민C)</span></div>
+        <div class="dot other" style="left:24%;top:40%;"><div class="d"></div><span>더마팩토리</span></div>
+        <div class="dot other" style="left:36%;top:62%;"><div class="d"></div><span>라로슈포제</span></div>
+        <div class="dot other" style="left:40%;top:74%;"><div class="d"></div><span>닥터멜락신</span></div>
+        <div class="dot other" style="left:78%;top:18%;"><div class="d"></div><span>약국약(HQ)</span></div>
+        <div class="dot us" style="left:76%;top:74%;"><div class="d"></div><span>도미나스</span></div>
+        <div class="star" style="left:76%;top:90%;">제약 신뢰 × 저자극 데일리 = 무주공산</div>
+      </div>
+    </div>
+    <div class="col" style="flex:.85">
+      <div class="card"><h3>도미나스의 포지션 정의</h3>
+        <p style="margin-bottom:10px;">강효과·고자극(약국약)도, 저자극이지만 신뢰가 옅은 인디 더마도 아닌 —</p>
+        <p class="lead" style="font-size:17px;"><span class="emn">"68년 기미 전문 제약사가 만든, 매일 써도 되는 저자극 기미 케어."</span></p>
+      </div>
+      <div class="card" style="margin-top:14px;"><h3>경쟁사가 못 가진 이유</h3>
+        <ul class="clean">
+          <li>인디 더마 = 제약 헤리티지 없음</li>
+          <li>약국약 = 부작용·휴식기로 데일리 불가</li>
+          <li>글로벌 더마 = 성분이 다르고 고가</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="brandfoot">DOMINAS</div><div class="pageno">07 / 12</div>
+</section>
+
+<!-- 8. 실행 - USP -->
+<section class="slide">
+  <div class="shead"><span class="chip act">③ 실행</span><span class="kicker">핵심 USP ｜ 본질 먼저, 도미나라서 완성</span></div>
+  <h1 class="stitle">왜 트라넥삼산인가 <span style="color:var(--faint)">→</span> 왜 <span class="emn">도미나</span>의 트라넥삼산인가</h1>
+  <div class="rule"></div>
+  <div class="row">
+    <div class="col card" style="flex:1;background:var(--mint-bg);border-color:#bfeee7;">
+      <span class="tag" style="background:var(--mint-d);color:#fff;">STEP A · 성분의 본질</span>
+      <h3 style="font-size:22px;margin-top:12px;" class="em">생기기 전에 막는다, 자극 없이</h3>
+      <ul class="clean">
+        <li><b class="k">선제 차단</b> — 멜라닌이 만들어지는 '신호 단계'에서 브레이크. 이미 생긴 색소를 지우는 사후 케어와 다르다.</li>
+        <li><b class="k">저자극 365일</b> — 빛·열에 안정적이라 낮·밤, 민감 피부도 매일.</li>
+        <li>비타민C의 따가움도, 레티놀의 뒤집어짐도 없다.</li>
+      </ul>
+    </div>
+    <div class="arrow">+</div>
+    <div class="col card" style="flex:1;background:var(--navy-bg);">
+      <span class="tag" style="background:var(--navy);color:#fff;">STEP B · 도미나라서</span>
+      <h3 style="font-size:22px;margin-top:12px;" class="emn">'적정 배합'을 아는 제약사</h3>
+      <ul class="clean">
+        <li><b class="k">트라넥삼산은 과해도 문제</b> — 농도가 높으면 오히려 자극·부작용 우려.</li>
+        <li>그래서 중요한 건 <b class="k">효과와 안전의 균형점</b>.</li>
+        <li><b class="k">68년 기미 전문 태극제약</b>이 약(도미나크림)부터 만들어온 노하우로 <b class="k">과하지도 모자라지도 않게</b> 설계.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:22px;text-align:center;">성분이 답을 주고, <span class="hi">제약사의 균형 설계가 신뢰를 완성</span>한다 — 이것이 도미나스만의 USP.</p>
+  <p class="note" style="text-align:center;">※ '적정 배합' 메시지는 실제 함량·배합 의도 확인 후 톤 조정 권장(상세페이지 함량 미표기).</p>
+  <div class="brandfoot">DOMINAS</div><div class="pageno">08 / 12</div>
+</section>
+
+<!-- 9. 실행 - 타깃 + 메시지 -->
+<section class="slide">
+  <div class="shead"><span class="chip act">③ 실행</span><span class="kicker">마케팅 메시지 ｜ 타깃 & 핵심 메시지</span></div>
+  <h1 class="stitle">"올라온 뒤엔 늦습니다" — <span class="em">막는 기미 케어</span>로 말 건다</h1>
+  <div class="rule"></div>
+  <div class="row">
+    <div class="col" style="flex:.9">
+      <div class="card"><h3>1차 타깃 페르소나</h3>
+        <p style="font-size:15.5px;"><b class="k">35~45세 여성</b> · 호르몬·누적 광노출로 기미가 본격화. 비타민C·레티놀을 써봤지만 <b class="k">따가움·뒤집어짐</b>을 겪었고, 약국 하이드로퀴논은 <b class="k">부작용·휴식기</b>가 부담스럽다.</p>
+        <p style="margin-top:12px;font-size:15.5px;" class="emc">페인포인트: "효과는 원하는데, 자극과 부작용은 무섭다."</p>
+      </div>
+      <div class="card" style="margin-top:14px;"><h3>채널 톤</h3>
+        <ul class="clean">
+          <li>정보성·전문성(제약 헤리티지) + 안심·일상 톤</li>
+          <li>"치료" 표현 지양 → "예방·관리·케어"로 화장품 표현 준수</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col" style="flex:1.1">
+      <div class="card" style="background:var(--charcoal);border:none;">
+        <span class="tag" style="background:var(--mint);color:#fff;">MASTER MESSAGE</span>
+        <p style="color:#fff;font-size:26px;font-weight:800;line-height:1.4;margin-top:14px;">"기미는 지우는 게 아니라,<br><span style="color:var(--mint)">신호부터 막는 것.</span>"</p>
+        <p style="color:#c9cfcf;margin-top:10px;font-size:14px;">올라온 뒤엔 늦습니다 — 자극 없이, 매일.</p>
+      </div>
+      <div class="row" style="margin-top:14px;gap:12px;">
+        <div class="col card" style="padding:14px 16px;"><p style="font-size:13.5px;">따가운 비타민C, 뒤집어지는 레티놀 말고 — <b class="k">자극 없이 뿌리부터</b>.</p></div>
+        <div class="col card" style="padding:14px 16px;"><p style="font-size:13.5px;">낮에도 밤에도, <b class="k">365일 막는</b> 저자극 케어.</p></div>
+        <div class="col card" style="padding:14px 16px;"><p style="font-size:13.5px;">기미를 가장 잘 아는 <b class="k">68년 제약사의 적정 배합</b>.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="brandfoot">DOMINAS</div><div class="pageno">09 / 12</div>
+</section>
+
+<!-- 10. Next Action 1 -->
+<section class="slide">
+  <div class="shead"><span class="chip act">③ 실행</span><span class="kicker">Next Action ① ｜ 콘텐츠를 가장 먼저</span></div>
+  <h1 class="stitle">최우선 액션 — <span class="em">'성분 비교'</span> 메시지 콘텐츠를 깔고 시딩한다</h1>
+  <div class="rule"></div>
+  <div class="card" style="background:var(--mint-bg);border-color:#bfeee7;">
+    <h3 class="em" style="font-size:19px;">핵심 콘텐츠 앵글 (가장 먼저 발행)</h3>
+    <p class="lead" style="font-size:18px;margin-top:6px;">"비타민C는 <span class="emc">따갑고</span>, 레티놀은 <span class="emc">뒤집어지고</span>, 나이아신은 <span class="emc">약한데</span> — <span class="hi">트라넥삼산은 자극 없이 신호부터 막는다.</span>"</p>
+    <p style="margin-top:8px;font-size:14px;color:#5c6262;">→ 경쟁 성분의 단점을 지렛대 삼아 트라넥삼산의 강점을 각인시키는 비교 콘텐츠를 대량 발행.</p>
+  </div>
+  <h3 style="margin:20px 0 12px;font-size:16px;color:var(--gray);font-weight:700;">Phase 1 · 집행 채널 (동시 전개)</h3>
+  <div class="row" style="gap:14px;">
+    <div class="col card"><span class="tag" style="background:var(--mint-d);color:#fff;">1</span><h3 style="margin-top:10px;">Paid 콘텐츠 집행</h3><p>메타·유튜브·디스플레이에 성분 비교 영상/카드뉴스 집행. 타깃: 35~45세, 기미·미백·민감성 관심사.</p></div>
+    <div class="col card"><span class="tag" style="background:var(--mint-d);color:#fff;">2</span><h3 style="margin-top:10px;">블로그 시딩</h3><p>체험단·정보성 리뷰로 "성분 비교 + 사용 후기" 검색 자산 축적. 네이버 상위 노출 확보.</p></div>
+    <div class="col card"><span class="tag" style="background:var(--mint-d);color:#fff;">3</span><h3 style="margin-top:10px;">카페 침투 마케팅</h3><p>맘카페·뷰티카페에 기미 고민 QnA·후기로 자연 노출. "자극 없는 기미템" 입소문 시드.</p></div>
+  </div>
+  <p class="lead" style="margin-top:20px;">먼저 <span class="hi">"막는 기미 케어"라는 인식의 씨앗</span>을 검색·커뮤니티 곳곳에 심는다.</p>
+  <div class="brandfoot">DOMINAS</div><div class="pageno">10 / 12</div>
+</section>
+
+<!-- 11. Next Action 2 -->
+<section class="slide">
+  <div class="shead"><span class="chip act">③ 실행</span><span class="kicker">Next Action ② ｜ 확산에서 전환으로</span></div>
+  <h1 class="stitle">시딩 → <span class="em">바이럴</span> → <span class="emn">오프라인 전환</span>의 단계별 확장</h1>
+  <div class="rule"></div>
+  <div class="phase">
+    <div class="pcard p1"><span class="pnum">PHASE 1 · 최우선</span><h3>콘텐츠 & 시딩</h3>
+      <ul><li>성분 비교 메시지 콘텐츠</li><li>Paid · 블로그 시딩 · 카페 침투</li><li>인식의 씨앗 심기</li></ul></div>
+    <div class="arrow">→</div>
+    <div class="pcard p2"><span class="pnum">PHASE 2 · 확산</span><h3>바이럴</h3>
+      <ul><li>멜라닌 기전 시각화 숏폼(릴스/쇼츠)</li><li>비포&애프터 UGC·리뷰 증폭</li><li>인플루언서 협업으로 도달 확대</li></ul></div>
+    <div class="arrow">→</div>
+    <div class="pcard p3"><span class="pnum">PHASE 3 · 전환</span><h3>오프라인 채널</h3>
+      <ul><li>올영 등 오프라인 진입</li><li><b style="color:var(--navy)">"예방용 / 시술 후 관리용"</b> 포지셔닝</li><li>매대에서 구매 전환 유도</li></ul></div>
+  </div>
+  <div class="row" style="margin-top:20px;gap:14px;">
+    <div class="col card"><h3>오프라인 구매 트리거</h3><p>"기미가 <b class="k">생기기 전 예방</b>으로", "레이저로 <b class="k">없앤 뒤 재발 관리</b>로" 필요하다는 두 갈래 명분으로 구매를 일으킨다.</p></div>
+    <div class="col card"><h3>제품·채널 보강</h3><ul class="clean"><li>상시 60% 고할인 정상화 → 신뢰·프리미엄 회복</li><li>트라넥삼산 라인 통일 + 도미나크림(밤)·도미나스(낮) 연계</li></ul></div>
+  </div>
+  <div class="brandfoot">DOMINAS</div><div class="pageno">11 / 12</div>
+</section>
+
+<!-- 12. 결과 -->
+<section class="slide">
+  <div class="shead"><span class="chip result">④ 결과</span><span class="kicker">기대효과 & 로드맵</span></div>
+  <h1 class="stitle">인식이 바뀌면, <span class="em">카테고리를 갖는다</span></h1>
+  <div class="rule"></div>
+  <div class="card" style="text-align:center;background:var(--tint);">
+    <p class="lead" style="font-size:20px;">"기미는 막는 것" 인식 전환 &nbsp;→&nbsp; <span class="em">트라넥삼산 = 도미나스</span> 연상 &nbsp;→&nbsp; <span class="emn">기미 케어 카테고리 No.1 선점</span></p>
+  </div>
+  <div class="row" style="margin-top:22px;gap:16px;">
+    <div class="col card"><span class="tag" style="background:var(--mint-d);color:#fff;">0–3개월</span><h3 style="margin-top:10px;">씨 뿌리기</h3><p>성분 비교 콘텐츠·시딩·카페 침투로 "막는 기미 케어" 검색·커뮤니티 자산 구축.</p></div>
+    <div class="col card"><span class="tag" style="background:var(--navy);color:#fff;">3–6개월</span><h3 style="margin-top:10px;">확산</h3><p>바이럴·UGC·인플루언서로 인지 확대. 인체적용시험 수치 확보로 신뢰 보강.</p></div>
+    <div class="col card"><span class="tag" style="background:var(--charcoal);color:#fff;">6–12개월</span><h3 style="margin-top:10px;">전환·선점</h3><p>오프라인 진입·예방/사후관리 포지셔닝으로 구매 전환. 카테고리 대명사 자리 굳히기.</p></div>
+  </div>
+  <p class="lead" style="margin-top:26px;text-align:center;font-size:22px;">도미나스는 <span class="hi">기미를 '지우는 브랜드'가 아니라 '막는 브랜드'</span>로 기억된다.</p>
+  <div class="brandfoot">DOMINAS ｜ VALEN 브랜드전략과제</div><div class="pageno">12 / 12</div>
+</section>
+
+</div>
+</body>
+</html>
